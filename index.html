@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Permissions-Policy" content="ch-ua-form-factor=()">
+  <title>Manav Samaj Charitable Trust</title>
+  <style>
+    /* Resets */
+
+body{
+	color: #777;
+	font-family: 'Quicksand', sans-serif;
+	margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+.container{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	position: relative;
+}
+
+h1{
+	font-size: 60px;
+	font-weight: normal;
+}
+
+h3{
+	font-size: 30px;
+}
+
+h4{
+	font-size: 24px;
+}
+
+h6{
+	font-size: 20px;
+}
+
+p{
+	font-size: 18px;
+}
+
+.btn{
+	display: inline-block;
+	padding: 15px 30px;
+	border: 3px solid rgba(0,100,100,1);
+	background-color: transparent;
+	color: rgba(0,100,100,1);
+	transition: all .5s ease;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.btn:hover{
+	background-color: rgba(0,100,100,1);
+	color: white;
+}
+
+.btn span{
+	transform: translateX(0);
+	transition: all .5s ease;
+	display: inline-block;
+}
+
+.btn:hover span{
+	transform: translateX(5px);
+}
+
+/* header */
+
+header{
+	position: fixed;
+	z-index: 1000;
+}
+
+.logo{
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	margin: 30px;
+	/* border-left: 2px solid rgba(255,255,255,.5); */
+	/* border-right: 2px solid rgba(255,255,255,.5); */
+	/* border-bottom: 2px solid rgba(255,255,255,.5); */
+	padding: 5px 10px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	letter-spacing: 1px;
+    background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 0, 0));
+    /* background-color: black; */
+}
+
+.logo .light{
+	color: rgba(255,255,255,.5);
+}
+
+
+
+.button{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: rgba(0,100,100,.5);
+	position: fixed;
+	display: block;
+	right: 30px;
+	top: 30px;
+	transition: all .5s ease;
+	box-shadow: 1px 2px 2px rgba(0,0,0,.15);
+	transform: scale(1);
+	cursor: pointer;
+}
+
+.button.turn{
+	transform: rotate(45deg);
+}
+
+.button:hover{
+	transform: scale(1.1);
+	background-color: rgba(0,100,100,1);
+}
+
+.button::before, .button::after{
+	content: '';
+	position: absolute;
+	height: 4px;
+	width: 20px;
+	background-color: white;
+	left: 50%;
+	margin-left: -10px;
+	top: 50%;
+	margin-top: -1px;
+	transition: all .5s ease;
+}
+
+.button::before{
+	margin-top: -5px;
+}
+
+.button::after{
+	margin-top: 4px;
+}
+
+.button:hover::before, .button.turn::before{
+	transform: rotate(90deg);
+	margin-top: -1px;
+} 
+
+.button:hover::after, .button.turn::after {
+	transform: rotate(0deg);
+	margin-top: -1px;
+}
+
+.menu{
+	/* visibility: hidden; */
+	opacity: 1;
+	transition: all .5s ease;
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0,100,100,.75);
+	right: 0;
+	top: -16px;
+	position: fixed;
+	z-index: 100;
+	padding: 100px 0px 50px;
+	text-align: center;
+	transform: translateX(100%);
+	list-style: none;
+}
+
+.on{
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.menu li{display: block;}
+
+.menu li a{
+	color: white;
+	font-weight: bold;
+	font-size: 36px;
+	text-decoration: none;
+	padding: 10px 25px;
+	display: block;
+	background-color: rgba(0,50,50,0);
+	transition: all .5s ease;
+}
+
+.menu li a:hover{
+	background-color: rgba(0,50,50,1);
+}
+
+/* Slider styling */
+
+.wrapper {
+	/* width: 100%; */
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	background-image: url('./viznes_charitable_homepage.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.wrapper::after{
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left:0;
+	top: 0;
+	/* background-color: rgba(3, 255, 255, 0.1); */
+	z-index: 3;
+}
+
+.wrapper iframe{
+	position: relative;
+	z-index: 1;
+}
+
+.caption{
+	position: absolute;
+	color: white;
+	z-index: 5;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	left: 50%;
+	text-align: center;
+}
+
+.caption h1{
+	display: inline-block;
+	border-left: 4px solid white;
+	border-right: 4px solid white;
+	border-bottom: 4px solid white;
+	padding: 10px 30px;
+	color: rgba(255,255,255,.5);
+	transition-delay: 1s;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.caption h1 strong{
+	color: rgba(255,255,255,1);
+}
+
+.arrow-box{
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	bottom: 50px;
+	z-index: 5;
+	left: 50%;
+	margin-left: -20px;
+	border: 4px solid rgba(255,255,255,.5);
+	border-radius: 50%;
+	animation: bounce 2s forwards infinite;
+}
+
+.arrow-box .left, .arrow-box .right{
+	position: absolute;
+	display: inline-block;
+	height: 4px;
+	width: 20px;
+	background-color: white;
+	left: 50%;
+	margin-left: -10px;
+	top: 50%;
+	margin-top: -2px;
+}
+
+.arrow-box .left{
+	transform: rotate(45deg);
+	left: 35%;
+}
+
+.arrow-box .right{
+	transform: rotate(-45deg);
+	left: 65%;
+}
+
+/* About */
+
+.about{
+	background-color: white;
+	padding: 60px 30px;
+	text-align: center;
+}
+
+.content{
+	max-width: 450px;
+	margin: 0 auto;
+}
+
+.content h4{
+	display: inline-block;
+	font-weight: normal;
+}
+
+hr{
+	width: 100px;
+	border: 0;
+	height: 2px;
+	background-color: rgba(255,255,255,.5);
+}
+
+.content hr{
+	background-color: rgba(0,100,100,.5);
+	margin: 0 auto;
+}
+
+p{
+	line-height: 28px;
+}
+
+/* Half section */
+
+.columns{
+	overflow: hidden;
+}
+
+.half{
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	padding: 60px;
+	background-color: rgba(0,100,100,1);
+	color: white;
+	text-align: left;
+}
+
+.half:last-child{
+	background-color: rgba(0,100,100,.75);
+}
+
+.half h4{
+	line-height: 24px;
+	margin: 0 0 40px;
+	position: relative;
+	display: inline-block;
+}
+
+.half h4::after{
+	content: '';
+	position: absolute;
+	height: 4px;
+	width: 50%;
+	left: 0;
+	bottom: -18px;
+	background-color: white;
+}
+
+.half p{
+	color: rgba(255,255,255,.75);
+}
+
+/* Services */
+
+.services{
+	position: relative;
+	overflow: auto;
+	min-height: 250px;
+	background-color: white;
+	padding: 60px 0px;
+	text-align: center;
+}
+
+.services .columns{
+	max-width: 1000px;
+	width: 94%;
+	margin: 0 auto;
+	position: relative;
+	text-align:center;
+}
+
+.services .content{
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.services .quarter{
+	width: 25%;
+	float: left;
+	min-height: 250px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	border: 3px solid white;
+	box-sizing: border-box;
+}
+
+.quarter::after{
+	content: '';
+	position: absolute;
+	height: 90%;
+	width: 90%;
+	top: 5%;
+	transform: translateY();
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgba(0,50,50,0);
+	color: white;
+	box-sizing: border-box;
+	padding: 10px 5px;
+	transition: all .5s ease;
+}
+
+.quarter:nth-child(1){
+	background-image: url('https://static.pexels.com/photos/131014/pexels-photo-131014.jpeg');
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.quarter:nth-child(2){
+	background-image: url('https://static.pexels.com/photos/131014/pexels-photo-131014.jpeg');
+}
+.quarter:nth-child(3){
+	background-image: url('https://c1.staticflickr.com/3/2801/4231944680_4bf03d8c69_z.jpg?zz=1');
+}
+
+.quarter:nth-child(4){
+	background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Fastback_2.jpg');
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.quarter:nth-child(5){
+	background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Fastback_2.jpg');
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.quarter:nth-child(6){
+	background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Fastback_2.jpg');
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.quarter:hover::after{
+	background-color: rgba(132, 249, 249, 0.9);
+}
+
+.quarter .caption{
+	opacity: 1;
+	transition: all .5s ease;
+}
+
+.quarter:hover .caption{
+	opacity: 1;
+}
+
+.services .btn{
+	margin: 60px auto 0;
+}
+
+/* Work With Us */
+
+.work{
+	padding: 60px 30px;
+	background-image: url('https://static.pexels.com/photos/260551/pexels-photo-260551.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	z-index: 1;
+}
+
+.work::after{
+	content: '';
+	position: absolute;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,100,100,.8);
+}
+
+.work .content{
+	text-align: center;
+	color: white;
+	position: relative;
+	z-index: 3;
+}
+
+.work hr{
+	background-color: rgba(255,255,255,.5);
+}
+
+.work .btn{
+	border-color: rgba(255,255,255,.5);
+	color: white;
+}
+
+.work .btn:hover{
+	background-color: white;
+	color: rgba(0,100,100,1);
+	border-color: white;
+}
+
+/*Footer*/
+
+footer{
+	padding: 30px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+footer .logo{
+	border-color: rgba(0,0,0,.5);
+	color: rgba(0,0,0,.5);
+	margin: 0 auto;
+}
+
+footer .logo::before, footer .logo::after{
+	content: '';
+	position: absolute;
+	height: 2px;
+	width: 40%;
+	top: 50%;
+	margin-top: -1px;
+	background-color: rgba(0,0,0,.5);
+}
+
+footer .logo::before{
+	right: 53.8%;
+}
+
+footer .logo::after{
+	left: 53.8%;
+}
+
+footer .logo .light{
+	color: rgba(0,0,0,.25);
+}
+
+/* Animations */
+
+@keyframes bounce{
+	0%{
+		transform: translateY(0);
+		opacity: 1;
+	}
+	100%{
+		transform: translateY(10%);
+		opacity: 1;
+	}
+}
+
+.fadeUp{
+	transition: all .5s ease;
+	transform: translateY(30%);
+	opacity: 1;
+}
+
+.fadeUp.in-view{
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.fadeIn{
+	transition: all .5s ease;
+	opacity: 1;
+}
+
+.fadeIn.in-view{
+	opacity: 1;
+}
+
+.fadeDown{
+	transition: all .5s ease;
+	transform: translateY(-50%);
+	opacity: 1;
+}
+
+.fadeDown.in-view{
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery-item {
+    margin: 1rem;
+  }
+
+  .white{
+    color: black;
+  }
+
+/* .fadeRight{
+	transition: all .5s ease;
+	transform: translateX(-100%);
+	opacity: 1;
+}
+
+.fadeRight.in-view{
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.fadeLeft{
+	transition: all .5s ease;
+	transform: translateX(100%);
+	opacity: 1;
+}
+
+.fadeLeft.in-view{
+	transform: translateX(0);
+	opacity: 1;
+} */
+
+#qrCode{
+    max-width: 20em;
+    max-height: 20em;
+    margin-bottom: 12em;
+}
+
+#services{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logoMain{
+    max-width: 1em;
+    max-height: 1em;
+}
+
+#endingPara{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: center;
+    margin: 5rem;
+}
+
+/* mobile styling */
+
+@media screen and (max-width: 800px) {
+	.wrapper iframe{
+		display: none;
+	}
+	
+	.wrapper{
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	
+	.half{
+		width: auto;
+		float: none;
+		text-align: center;
+	}
+	
+	.half:last-child{
+		text-align: center;
+	}
+	
+	.services .quarter{
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.services .quarter{
+		width: auto;
+		float: none;
+	}
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+        section {
+            padding: 60px 0;
+           /* min-height: 100vh;*/
+        }
+ ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+.contact-area {
+    border-bottom: 1px solid #353C46;
+}
+
+.contact-content p {
+    font-size: 15px;
+    margin: 30px 0 60px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-content p::after {
+    background: #353C46;
+    bottom: -30px;
+    content: "";
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: 80%;
+}
+
+.contact-content h6 {
+    color: #8b9199;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.contact-content span {
+    color: #353c47;
+    margin: 0 10px;
+}
+
+.contact-social {
+    margin-top: 30px;
+}
+
+.contact-content img {
+    max-width: 210px;
+}
+
+section, footer {
+    background: #1A1E25;
+    color: #868c96;
+}
+
+footer p {
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer img {
+    width: 44px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container m-0 p-0">
+    <header>
+      <a class="logo" href="#donate">
+        <span class="bold">Donate </span><span class="light">Us</span>
+      </a>
+      <a class="logo" href="./aboutUs">
+        <span class="bold">About </span><span class="light">Us</span>
+      </a>
+    </header>
+    <div class="wrapper">
+      
+      <div class="caption">
+        <h1 class="a-element fadeDown"> <img id="logoMain" src="./logoMain.png" alt=""> <strong>Pratishtha</strong> Charitable</h1>
+      </div> 
+    </div>
+    <div class="about" id='about'>
+      <div class="content">
+        <h4 class="a-element fadeUp">We're <strong>Pratishtha</strong>.</h4>
+        <hr class="a-element fadeIn">
+        <p class="a-element fadeUp" style="margin-bottom: 5em;">Unlocking the warmth of unconditional love, 'Pratishtha Charitable Trust' stands as a sanctuary of compassion for abandoned elderly parents. With hearts devoted to healing and care, we embrace those left behind in their golden years, nurturing them with dignity and respect. Through a nurturing home and unwavering support, we offer a second chance at happiness, enriching lives with nourishment, medical care, and the warmth of a loving community. Join us in illuminating the lives of these forgotten heroes, and together, let's create a world where no parent feels abandoned, and love knows no bounds.</p>
+      </div>
+    </div>
+    <div class="columns a-element fadeIn" id='services'>
+      <div class="half a-element fadeRight">
+        <h4>We Provide.</h4>
+        <p>we provide love, care, and a nurturing home to abandoned elderly parents. With unwavering support and a compassionate community, we offer them a second chance at happiness. Together, we provide hope and healing to those in need.</p>
+      </div>
+      <div class="half a-element fadeLeft">
+        <h4>We Care.</h4>
+        <p>we care deeply for abandoned elderly parents. Our dedication ensures they find a nurturing home filled with love and compassion. With a supportive community, we strive to create a world where no parent feels forgotten.</p>
+      </div>
+    </div>
+    <div class="services" id='work'>
+      <div class="content">
+        <h4 class="a-element fadeUp">See our <strong>work</strong>.</h4>
+        <hr class="a-element fadeIn">
+      </div>
+      <div class="columns a-element fadeIn">
+        <section id="gallery-section">
+            <h2>Gallery</h2>
+            <div class="gallery" id="gallery">
+              <div class="gallery-item">
+                <iframe width="560" height="315" src="https://youtube.com/embed/Bsu7kpFgvBE" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>
+                  
+                  <iframe width="560" height="315" src="https://youtube.com/embed/Dlr5wQB5zHU" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>
+                  
+                  <iframe width="560" height="315" src="./views/videos/video1.mp4" title="Inhouse Video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen sandbox></iframe>
+              </div>
+              <div class="gallery-item">
+                <img width="450" height="450" src="./views/images/image1.jpeg" alt="Image 1">
+              </div>
+              <div class="gallery-item">
+                <img width="450" height="450" src="./views/images/image2.jpeg" alt="Image 2">
+              </div>
+              <div class="gallery-item">
+                <img width="450" height="450" src="./views/images/image3.jpeg" alt="Image 3">
+              </div>
+              <div class="gallery-item">
+                <img width="750" height="750" src="./views/images/image4.jpeg" alt="Image 4">
+              </div>
+              <div class="gallery-item">
+                <img src="./views/images/image5.jpeg" alt="Image 5">
+              </div>
+              <div class="gallery-item">
+                <img width="450" height="450"src="https://smssodisha.org/wp-content/uploads/2020/12/1.jpeg" alt="Image 6">
+              </div>
+              <div class="gallery-item">
+                <img width="450" height="450" src="https://tse1.mm.bing.net/th?id=OIP.5TeNEkCrG3m2q3jhA3j93wHaE7&pid=Api&P=0&h=180" alt="Image 7">
+              </div>
+              <div class="gallery-item">
+                <img  src="./views/images/image6.jpeg" alt="Image 8">
+              </div>
+              <div class="gallery-item">
+                <img src="./views/images/image7.jpeg" alt="Image 9">
+              </div>
+              <div class="gallery-item">
+                <img src="./views/images/image8.jpeg" alt="Image 10">
+              </div>
+              <div class="gallery-item">
+                <img src="./views/images/image9.jpeg" alt="Image 11">
+              </div>
+            </div>
+          </section>
+      </div>
+    </div>
+    <div class="work" id="donate">
+      <div class="content a-element fadeUp">
+        <h4>Drop us a <strong>Coin</strong></h4>
+        <hr>
+        <p>Your compassion can unlock doors to a brighter tomorrow.One scan, one moment of kindness. Help us build a world where no one is left behind.
+
+            Together, let's turn compassion into action. Scan the QR code and let love and generosity flow.</p>
+            <img src="./qrCode.png" id="qrCode" alt="">
+      </div>
+    </div>
+    <!-- footer  -->
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <a href="#"><img src="./logoMain.png" alt="logo"></a>
+                        <p id="endingPara">"Welcome to 'Manav Samaj Charitable Trust,' where love knows no bounds for abandoned elderly parents. Our mission is to provide a nurturing home and comprehensive support to those left behind in their twilight years. With a dedicated team of caregivers and volunteers, we ensure their well-being, comfort, and happiness through nutritious meals, medical checkups, and engaging activities that foster a sense of community.
+
+                            At 'Manav Samaj,' we believe that every individual deserves respect, dignity, and companionship. Through the unwavering support of kind-hearted donors, we offer these forgotten parents a second chance at happiness. Join us in creating a world where no elderly parent feels abandoned, and where compassion shines bright, illuminating lives with love and care."</p>
+                        <div class="hr"></div>
+                        <h6>We are At : Sakwar Post, Khaniwade, Vasai - Palghar</h6>
+                        <h6><a style="text-decoration: none;" href="tel:+917972362065">Dr Sanjay Singh : +91 797 236 2065</a><span>|</span><a style="text-decoration: none;" href="tel:+917972362065">Mr Satish Pawar : +91 899 981 4433</a></h6>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="endingPara">
+        <p>Copyright &copy; 1993  <img src="./logoMain.png" alt="logo">  All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
